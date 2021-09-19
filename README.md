@@ -21,4 +21,4 @@ Leverage Yield Farming Smart Contracts based on Compound and dydx flashloans.
 ## Successful execution Shows compound token earnings every 10s
 
 
-![Screenshots/earning.jpg](Screenshots/earning.jpg)# flash-loan
+![Screenshots/earning.jpg](Screenshots/earning.jpg)
