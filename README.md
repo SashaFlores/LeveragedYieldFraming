@@ -1,24 +1,45 @@
-# Flash-Loan
+# LeveragedYieldFraming
 
-Leverage Yield Farming Smart Contracts based on Compound and dydx flashloans.
-
-## Tools & Systems:
-
-* [npm](https://www.npmjs.com/) based dap.
-* [Truffle framework](https://www.trufflesuite.com/) for Smart Contracts.
-* [Ganache-cli](https://www.trufflesuite.com/) for forking Ethereum mainnet.
-* [MetaMask](https://metamask.io/) Wallet.
-* [Infura](https://infura.io/) API & Project ID.
-* [Open Zeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts) library.
-* [Money Legos](https://money-legos.studydefi.com/#/compound) library that provides you with the mainnet addresses, ABIs, and Interfaces for DeFi protocols.
-
-## Clone and run packages:
-
-    git clone git@github.com:SashaFlores/Flash-Loans.git
-    cd Flash-Loan
-    npm install
-
-## Successful execution Shows compound token earnings every 10s
+My client asked to leverage his flash loan from [DYDX](https://dydx.exchange/) with liquidity mining, AKA yield farming on compound since [Compound protocol](https://compound.finance/) doesn't support collateral loans fro it's interface.
 
 
-![Screenshots/earning.jpg](Screenshots/earning.jpg)
+
+### To test this contract locally before running it on mainnet:
+
+1- install dependencies by running ```npm i```
+
+2- install ganache-cli ```npm i ganache-cli```
+
+3- needs 2 terminals running simultaneously:
+   
+```ganache-cli -p 7545 -f <https://YOUR_ETH_PROVIDER>```
+
+4- second terminal: ```truffle test```
+
+
+### Logic implemented in contract as per client requirements:
+
+- Swap ETH for DAI on [Uniswap](https://uniswap.org/).
+
+- Deposit swapped DAI and flash loan from DYDX in contract.
+
+- Deposit DAI in compound protocol which will earns you:
+
+    -   Compound token 
+    -   interest rate
+    
+
+- Borrow 70% DAI against total DAI deposited in compound, which will:
+
+    - earns you compound token
+    - incurs interest rate that will be paid by earned interest.
+
+- Pay back your flash loan amount to DYDX.
+
+- Pay back you compound loan to withdraw your collateral DAI to your contract then to your wallet.
+
+
+## Successful execution should looks like below
+
+
+![earnings](images/earning.jpg)

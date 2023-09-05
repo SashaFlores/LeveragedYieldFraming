@@ -42,6 +42,11 @@ contract('LeveragedYieldFarm', ([acc]) => {
 
       expect(Number(daiBalanceAfter)).to.be.above(Number(daiBalanceBefore))
       expect(Number(ethBalanceAfter)).to.be.below(Number(ethBalanceBefore))
+
+      console.log(`Eth Balance Before Swapping: ${ethBalanceBefore}`)
+      console.log(`Eth Balance After Swapping: ${ethBalanceAfter}`)
+      console.log(`DAI Balance Before Swapping: ${daiBalanceBefore}`)
+      console.log(`DAI Balance After Swapping: ${daiBalanceAfter}`)
     })
   })
 
@@ -62,6 +67,7 @@ contract('LeveragedYieldFarm', ([acc]) => {
 
       console.log('\nw8 10s to accrue interest...\n')
       await wait(10)
+
 
       //Taking profits
       await contract.withdrawDai(web3.utils.toWei('1', 'Ether'))

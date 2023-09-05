@@ -1,7 +1,7 @@
 {
-  "name": "flash-loan",
+  "name": "LeveragedYieldFraming",
   "version": "0.1.0",
-  "private": true,
+  "author": "Sasha Flores",
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.0",
     "@studydefi/money-legos": "^2.4.2",

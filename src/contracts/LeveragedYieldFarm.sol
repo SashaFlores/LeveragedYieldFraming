@@ -118,7 +118,8 @@ contract LeveragedYieldFarm is ICallee, DydxFlashloanBase {
 
     // Get DAI Flash Loan for "DEPOSIT"
     bool isDeposit = true;
-    flashLoan(soloMarginAddress, daiAddress, flashLoanAmount, totalAmount, isDeposit); // execution goes to `callFunction`
+    // execution goes to `callFunction`
+    flashLoan(soloMarginAddress, daiAddress, flashLoanAmount, totalAmount, isDeposit); 
 
     // Handle remaining execution inside handleDeposit() function
 
